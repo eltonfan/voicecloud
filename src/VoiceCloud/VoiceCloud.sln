@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mavplus.VoiceCloud", "Mavplus.VoiceCloud\Mavplus.VoiceCloud.csproj", "{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{D6717350-467B-4486-8EAF-D987C69F5BD3}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mavplus.VoiceCloud.Demo", "Mavplus.VoiceCloud.Demo\Mavplus.VoiceCloud.Demo.csproj", "{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
