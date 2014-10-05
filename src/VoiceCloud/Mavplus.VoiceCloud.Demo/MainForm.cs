@@ -26,7 +26,25 @@ namespace Mavplus.VoiceCloud.Demo
             isr = new AudioFileIsrEngine(config,
                 "builtin:grammar/../search/location.abnf?language=zh-cn");
 
+            btnAudioFile.Click += btnAudioFile_Click;
             InitLocalSR();
+        }
+
+        void btnAudioFile_Click(object sender, EventArgs e)
+        {
+            btnAudioFile.Enabled = false;
+            try
+            {
+                txtInput.Text += isr.Recognize(txtAudioFile.Text);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(this, "识别出错：" + ex.Message, "提示");
+            }
+            finally
+            {
+                btnAudioFile.Enabled = true;
+            }
         }
 
         LocalAudioIsrEngine localSR = null;

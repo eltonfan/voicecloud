@@ -34,8 +34,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtAudioUrl = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnAudioFile = new System.Windows.Forms.Button();
+            this.txtAudioFile = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLocalSR
@@ -57,7 +61,7 @@
             this.txtInput.Multiline = true;
             this.txtInput.Name = "txtInput";
             this.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtInput.Size = new System.Drawing.Size(357, 243);
+            this.txtInput.Size = new System.Drawing.Size(357, 280);
             this.txtInput.TabIndex = 22;
             // 
             // btnNetworkSR
@@ -74,7 +78,7 @@
             // 
             this.groupBox1.Controls.Add(this.txtAudioUrl);
             this.groupBox1.Controls.Add(this.btnNetworkSR);
-            this.groupBox1.Location = new System.Drawing.Point(375, 88);
+            this.groupBox1.Location = new System.Drawing.Point(375, 192);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(239, 100);
             this.groupBox1.TabIndex = 32;
@@ -94,18 +98,50 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.btnLocalSR);
-            this.groupBox2.Location = new System.Drawing.Point(375, 12);
+            this.groupBox2.Location = new System.Drawing.Point(375, 116);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(239, 70);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "本地麦克风";
+            this.groupBox2.Text = "麦克风";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.txtAudioFile);
+            this.groupBox3.Controls.Add(this.btnAudioFile);
+            this.groupBox3.Location = new System.Drawing.Point(375, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(239, 98);
+            this.groupBox3.TabIndex = 34;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "音频文件";
+            // 
+            // btnAudioFile
+            // 
+            this.btnAudioFile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAudioFile.Location = new System.Drawing.Point(6, 47);
+            this.btnAudioFile.Name = "btnAudioFile";
+            this.btnAudioFile.Size = new System.Drawing.Size(75, 36);
+            this.btnAudioFile.TabIndex = 20;
+            this.btnAudioFile.Text = "开始识别";
+            this.btnAudioFile.UseVisualStyleBackColor = true;
+            // 
+            // txtAudioFile
+            // 
+            this.txtAudioFile.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAudioFile.Location = new System.Drawing.Point(6, 20);
+            this.txtAudioFile.Name = "txtAudioFile";
+            this.txtAudioFile.Size = new System.Drawing.Size(211, 21);
+            this.txtAudioFile.TabIndex = 33;
+            this.txtAudioFile.Text = "audio.wav";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(626, 267);
+            this.ClientSize = new System.Drawing.Size(626, 320);
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtInput);
@@ -114,6 +150,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +165,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtAudioUrl;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtAudioFile;
+        private System.Windows.Forms.Button btnAudioFile;
     }
 }
 

@@ -74,6 +74,8 @@
     <Compile Include="..\AssemblyVersion.cs">
       <Link>Properties\AssemblyVersion.cs</Link>
     </Compile>
+    <Compile Include="Utils\WaveHeader.cs" />
+    <Compile Include="Utils\WavePlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="msc.cfg">
