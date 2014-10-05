@@ -32,7 +32,7 @@ namespace Mavplus.VoiceCloud
         /// <returns></returns>
         public override string ToString()
         {
-            string szParams = string.Format("ssm=1,{0},spd={1},aue=speex-wb;7,vol={2},auf=audio/L16;rate={3}",
+            string szParams = string.Format("ssm=1,{0},spd={1},aue=speex-wb;7,vol={2},auf=audio/L16;rse=unicode;rate={3}",
                 SpeakerInfo.GetExpression(this.Speaker),
                 SpeechSpeedInfo.GetKey(this.Speed),
                 SpeechVolumeInfo.GetKey(this.Volume),

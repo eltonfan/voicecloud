@@ -16,6 +16,7 @@ namespace Mavplus.VoiceCloud.Demo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new TtsForm());
             Application.Run(new MainForm());
         }
     }

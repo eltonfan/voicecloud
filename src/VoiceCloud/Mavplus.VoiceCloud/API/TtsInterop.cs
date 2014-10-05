@@ -66,7 +66,7 @@ namespace Mavplus.VoiceCloud.TextToSpeech
         }
         public static void TextPut(string sessionID, string text, TtsSessionParameters parameters = null)
         {
-            int length = Encoding.Default.GetByteCount(text);
+            int length = Encoding.Unicode.GetByteCount(text);
             MspErrors result = QTTSTextPut(sessionID, text, (uint)length,
                 (parameters == null) ? null : parameters.ToString());
             if (result != MspErrors.MSP_SUCCESS)

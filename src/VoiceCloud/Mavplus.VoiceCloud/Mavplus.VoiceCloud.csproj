@@ -56,6 +56,8 @@
     <Compile Include="EngineException.cs" />
     <Compile Include="API\SynthStatusEnums.cs" />
     <Compile Include="API\TtsInterop.cs" />
+    <Compile Include="TextToSpeech\SpeechPart.cs" />
+    <Compile Include="TextToSpeech\ProgressChangedEventArgs.cs" />
     <Compile Include="TextToSpeech\SpeakerEnums.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -65,6 +67,7 @@
     <Compile Include="TextToSpeech\SpeechVolumeEnums.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="TextToSpeech\TtsEngine.cs" />
     <Compile Include="Utils\EnumHelper.cs" />
     <Compile Include="IIsrEngine.cs" />
     <Compile Include="SpeechRecognition\AudioFileSREngine.cs" />
