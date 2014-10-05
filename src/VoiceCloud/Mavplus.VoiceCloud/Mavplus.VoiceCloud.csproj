@@ -56,6 +56,14 @@
     <Compile Include="EngineException.cs" />
     <Compile Include="API\SynthStatusEnums.cs" />
     <Compile Include="API\TtsInterop.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="TextToSpeech\AudioReceivedEventArgs.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="TextToSpeech\SpeechPart.cs" />
     <Compile Include="TextToSpeech\ProgressChangedEventArgs.cs" />
     <Compile Include="TextToSpeech\SpeakerEnums.cs">
@@ -98,6 +106,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="packages.config" />
+    <None Include="Resources\PCM_DING.pcm" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="msc.dll">
@@ -106,6 +115,12 @@
     <Content Include="speex.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

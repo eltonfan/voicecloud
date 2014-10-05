@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 using Mavplus.VoiceCloud.TextToSpeech;
+using NAudio.Wave;
 
 namespace Mavplus.VoiceCloud
 {
@@ -20,6 +21,8 @@ namespace Mavplus.VoiceCloud
     {
         readonly ConcurrentQueue<SpeechPart> queueAudios = new ConcurrentQueue<SpeechPart>();
         readonly BackgroundWorker bw = null;
+        readonly BufferedWaveProvider PlayBuffer = null;
+        readonly WaveOut waveOut = null;
         public WavePlayer()
         {
             bw = new BackgroundWorker();
@@ -28,6 +31,11 @@ namespace Mavplus.VoiceCloud
 
             bw.DoWork += bw_DoWork;
             bw.ProgressChanged += bw_ProgressChanged;
+
+            PlayBuffer = new BufferedWaveProvider(new WaveFormat(16000, 16, 1));
+            waveOut = new WaveOut();
+            waveOut.Init(PlayBuffer);
+            waveOut.Play();
         }
 
         void bw_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -52,22 +60,22 @@ namespace Mavplus.VoiceCloud
                     (int)(100.0 * (data.TextIndex + data.TextLength) / data.TotalCount),
                     data);
 
-                MemoryStream stream = new MemoryStream();
+                byte[] rawAudio = data.RawAudio;
+                int position = 0;
+                while (true)
+                {
+                    if (PlayBuffer.BufferedBytes > 16000 * 16 / 8 / 5)
+                    {//0.5ms
+                        Thread.Sleep(100);
+                        continue;
+                    }
+                    if (position >= rawAudio.Length)
+                        break;
 
-                byte[] headerByte = new WaveHeader(
-                    1,//单声道
-                    16000,//采样频率
-                    16,//每个采样8bit
-                    data.RawAudio.Length).ToBytes();
-                //写入文件头
-                stream.Write(headerByte, 0, headerByte.Length);
-                stream.Write(data.RawAudio, 0, data.RawAudio.Length);
-                stream.Flush();
-
-                stream.Position = 0;
-                System.Media.SoundPlayer pl = new System.Media.SoundPlayer(stream);
-                pl.Stop();
-                pl.PlaySync();
+                    int blockSize = Math.Min(16000 * 16 / 8, rawAudio.Length - position);
+                    PlayBuffer.AddSamples(rawAudio, position, blockSize);
+                    position += blockSize;
+                }
             }
         }
         public void PlayRawAudioSync(SpeechPart buffer)

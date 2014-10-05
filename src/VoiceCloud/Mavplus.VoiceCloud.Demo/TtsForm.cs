@@ -34,6 +34,7 @@ namespace Mavplus.VoiceCloud.Demo
             tts.ProgressChanged += tts_ProgressChanged;
 
             btnSpeakText.Click += btnSpeakText_Click;
+            btnSpeakFormatText.Click += btnSpeakFormatText_Click;
         }
 
         void player_ProgressChanged(object sender, TextToSpeech.ProgressChangedEventArgs e)
@@ -78,11 +79,35 @@ namespace Mavplus.VoiceCloud.Demo
         void btnSpeakText_Click(object sender, EventArgs e)
         {
             btnSpeakText.Enabled = false;
-            tts.Volume = (comboBox3.SelectedItem as EnumData<SpeechVolumeEnums>).Value;
-            tts.Speed = (comboBox2.SelectedItem as EnumData<SpeechSpeedEnums>).Value;
-            tts.Speaker = (comboBox1.SelectedItem as SpeakerInfo).Id;
-            tts.SpeakText(rtbContent.Text);
+            try
+            {
+                tts.Volume = (comboBox3.SelectedItem as EnumData<SpeechVolumeEnums>).Value;
+                tts.Speed = (comboBox2.SelectedItem as EnumData<SpeechSpeedEnums>).Value;
+                tts.Speaker = (comboBox1.SelectedItem as SpeakerInfo).Id;
+                tts.SpeakText(rtbContent.Text);
+            }
+            catch(Exception ex)
+            {
+
+            }
             btnSpeakText.Enabled = true;
+        }
+        void btnSpeakFormatText_Click(object sender, EventArgs e)
+        {
+            btnSpeakFormatText.Enabled = false;
+            try
+            {
+                tts.Volume = (comboBox3.SelectedItem as EnumData<SpeechVolumeEnums>).Value;
+                tts.Speed = (comboBox2.SelectedItem as EnumData<SpeechSpeedEnums>).Value;
+                tts.Speaker = (comboBox1.SelectedItem as SpeakerInfo).Id;
+
+                tts.SpeakFormatText(rtbContent.Text);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            btnSpeakFormatText.Enabled = true;
         }
 
         public class EnumData<T>

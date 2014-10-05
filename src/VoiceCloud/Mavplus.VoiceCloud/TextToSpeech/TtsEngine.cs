@@ -45,11 +45,11 @@ namespace Mavplus.VoiceCloud.TextToSpeech
         /// </summary>
         public event EventHandler<ProgressChangedEventArgs> ProgressChanged;
 
+        readonly byte[] dataDing = Properties.Resources.PCM_DING;
         /// <summary>
-        /// 构造函数，初始化引擎
+        /// 构造函数，初始化引擎。
         /// </summary>
-        /// <param name="config">初始化引擎参数</param>
-        /// <param name="szParams">开始会话用参数</param>
+        /// <param name="config">配置。</param>
         public TextToSpeechEngine(TtsConfig config)
         {
             this.Speed = SpeechSpeedEnums.medium;
@@ -66,6 +66,24 @@ namespace Mavplus.VoiceCloud.TextToSpeech
             TTSInterop.End();
         }
 
+        protected void RawAudioFromDing(List<SpeechPart> output)
+        {
+            output.Add(
+                new SpeechPart(0, 4, 4, "ting",
+                dataDing));
+        }
+
+        /// <summary>
+        /// 暂停一段时间
+        /// </summary>
+        /// <param name="output"></param>
+        /// <param name="seconds"></param>
+        protected void RawAudioFromSleep(List<SpeechPart> output, int seconds)
+        {
+            int dataLengthPerSecond = SampleRate * this.BitsPerSample * this.Channels / 8;
+            output.Add(new SpeechPart(0, seconds, seconds, "", new byte[dataLengthPerSecond * seconds]));
+        }
+
 
         string SessionId = null;
         /// <summary>
@@ -73,11 +91,10 @@ namespace Mavplus.VoiceCloud.TextToSpeech
         /// </summary>
         /// <param name="text">要转化成语音的文字</param>
         /// <param name="stream">合成结果输出的音频流</param>
-        protected void TextToRawAudio(List<SpeechPart> output, string text)
+        protected void RawAudioFromText(List<SpeechPart> output, string text)
         {
             if (string.IsNullOrWhiteSpace(text))
                 return;
-            int ret = 0;
             try
             {
                 if (this.SessionId == null)
@@ -161,7 +178,7 @@ namespace Mavplus.VoiceCloud.TextToSpeech
         public void ToWaveFile(string fileName, string content)
         {
             List<SpeechPart> rawAudio = new List<SpeechPart>();
-            TextToRawAudio(rawAudio, content);
+            RawAudioFromText(rawAudio, content);
             SaveAsWaveFile(fileName, rawAudio);
         }
 
@@ -184,11 +201,90 @@ namespace Mavplus.VoiceCloud.TextToSpeech
         {
             string content = e.Argument as string;
             List<SpeechPart> rawAudio = new List<SpeechPart>();
-            TextToRawAudio(rawAudio, content);
+            RawAudioFromText(rawAudio, content);
         }
 
         void bwSpeakText_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
+        }
+
+        /// <summary>
+        /// 已合成文本片段。
+        /// </summary>
+        public event EventHandler<AudioReceivedEventArgs> AudioReceived;
+
+        /// <summary>
+        /// 把文字转化为声音,多路配置，多种语音
+        /// </summary>
+        /// <param name="speekText">要转化成语音的文字</param>
+        /// <param name="outWaveFlie">把声音转为文件，默认为不生产wave文件</param>
+        protected void RawAudioFromFormatText(List<SpeechPart> output, string text)
+        {
+            try
+            {
+                string[] lines = text.Split(new string[] { "\r\n", "\n", "\r" }, StringSplitOptions.None);
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    int index = output.Count;
+                    try
+                    {
+                        if (lines[i] == null)
+                            continue;
+                        string line = lines[i].Trim();
+                        if (line == "")
+                            continue;
+
+                        int pos = line.IndexOf('#');//#在段中的位置
+                        if (pos > 0)
+                        {
+                            //设定了讲话者时用指定的讲话者说
+                            this.Speaker = SpeakerInfo.Parse(line.Substring(0, pos).ToLower());
+                            string content = line.Substring(pos + 1, line.Length - pos - 1);
+
+                            RawAudioFromText(output, content);
+                        }
+                        else if (line.StartsWith("stop"))
+                        {//暂停一段时间
+                            int seconds = Convert.ToInt32(line.Substring(4, line.Length - 4));
+
+                            RawAudioFromSleep(output, seconds);
+                        }
+                        else if (line.StartsWith("ting"))
+                        {//插入叮铃声
+                            RawAudioFromDing(output);
+                        }
+                        else
+                        {
+                            RawAudioFromText(output, line);
+                        }
+                    }
+                    finally
+                    {
+                        if (this.AudioReceived != null)
+                        {
+                            for (int blockId = index; blockId < output.Count; blockId++)
+                            {
+                                AudioReceivedEventArgs e = new AudioReceivedEventArgs(
+                                    index, lines.Length, output[blockId].RawAudio);
+                                this.AudioReceived(this, e);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Console.WriteLine(ex.Message);
+            }
+        }
+
+        public void SpeakFormatText(string content)
+        {
+            List<SpeechPart> rawAudio = new List<SpeechPart>();
+            RawAudioFromFormatText(rawAudio, content);
+
+            //foreach (byte[] item in rawAudio)
+            //    player.PlayRawAudioSync(item);
         }
     }
 }

@@ -39,6 +39,7 @@
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.btnSpeakText = new System.Windows.Forms.Button();
             this.rtbContent = new System.Windows.Forms.RichTextBox();
+            this.btnSpeakFormatText = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,13 +139,24 @@
             this.rtbContent.Size = new System.Drawing.Size(625, 251);
             this.rtbContent.TabIndex = 45;
             this.rtbContent.Text = "昨天下午，当杭州市气象局，在灿烂阳光中，宣布杭州入秋，小伙伴们的反应是，“不是已经进入秋天很久了吗？”今年，是秋天抢足了夏天的风头，以至于秋天真正到来时，秋意早就" +
-    "透支得差不多了。";
+    "透支得差不多了。\n请默写下面听到的句子。\nstop 2\nting\ncatherine#How are you?";
+            // 
+            // btnSpeakFormatText
+            // 
+            this.btnSpeakFormatText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnSpeakFormatText.Location = new System.Drawing.Point(111, 294);
+            this.btnSpeakFormatText.Name = "btnSpeakFormatText";
+            this.btnSpeakFormatText.Size = new System.Drawing.Size(75, 23);
+            this.btnSpeakFormatText.TabIndex = 46;
+            this.btnSpeakFormatText.Text = "带格式";
+            this.btnSpeakFormatText.UseVisualStyleBackColor = true;
             // 
             // TtsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 346);
+            this.Controls.Add(this.btnSpeakFormatText);
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.btnSpeakText);
             this.Controls.Add(this.statusStrip1);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.ToolStripProgressBar progressBar;
         private System.Windows.Forms.Button btnSpeakText;
         private System.Windows.Forms.RichTextBox rtbContent;
+        private System.Windows.Forms.Button btnSpeakFormatText;
     }
 }
