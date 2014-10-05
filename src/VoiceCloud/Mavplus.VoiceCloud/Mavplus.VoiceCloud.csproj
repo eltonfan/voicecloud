@@ -51,15 +51,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="API\TtsSessionParameters.cs" />
+    <Compile Include="API\TtsConfig.cs" />
     <Compile Include="EngineException.cs" />
+    <Compile Include="API\SynthStatusEnums.cs" />
+    <Compile Include="API\TtsInterop.cs" />
+    <Compile Include="TextToSpeech\SpeakerEnums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextToSpeech\SpeechSpeedEnums.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TextToSpeech\SpeechVolumeEnums.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Utils\EnumHelper.cs" />
     <Compile Include="IIsrEngine.cs" />
     <Compile Include="SpeechRecognition\AudioFileSREngine.cs" />
     <Compile Include="SpeechRecognition\AudioStatus.cs" />
     <Compile Include="SpeechRecognition\CodingLibEnums.cs" />
     <Compile Include="SpeechRecognition\EndPointStatusEnums.cs" />
-    <Compile Include="SpeechRecognition\IsrConfig.cs" />
-    <Compile Include="SpeechRecognition\IsrInterop.cs" />
+    <Compile Include="API\IsrConfig.cs" />
+    <Compile Include="API\IsrInterop.cs" />
     <Compile Include="SpeechRecognition\LocalAudioIsrEngine.cs" />
     <Compile Include="SpeechRecognition\NetworkAudioSREngine.cs" />
     <Compile Include="SpeechRecognition\RecognizeCompletedEventArgs.cs" />

@@ -1,11 +1,12 @@
 ﻿// Coded by chuangen http://chuangen.name.
 
+using Mavplus.VoiceCloud.ISR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Mavplus.VoiceCloud
 {
     /// <summary>
     /// 初始化时传入的字符串，以指定识别或听写用到的一些配置参数。
