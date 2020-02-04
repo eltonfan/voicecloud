@@ -10,7 +10,7 @@ using System.IO;
 using System.ComponentModel;
 using System.Threading;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Elton.VoiceCloud.ISR
 {
     /// <summary>
     /// 识别网络串流的语音。

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mavplus.VoiceCloud
+namespace Elton.VoiceCloud
 {
     /// <summary>
     /// WAVE 文件头。

@@ -1,4 +1,4 @@
-﻿using Mavplus.VoiceCloud.TextToSpeech;
+﻿using Elton.VoiceCloud.TextToSpeech;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mavplus.VoiceCloud.Demo
+namespace Elton.VoiceCloud.Demo
 {
     public partial class TtsForm : Form
     {

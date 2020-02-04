@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Elton.VoiceCloud.ISR
 {
     /// <summary>
     /// MSP2.0客户端子系统中关于ISR的函数。

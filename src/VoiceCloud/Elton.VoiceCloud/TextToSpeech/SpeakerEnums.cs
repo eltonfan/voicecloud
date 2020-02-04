@@ -6,7 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
-namespace Mavplus.VoiceCloud.TextToSpeech
+namespace Elton.VoiceCloud.TextToSpeech
 {
     /// <summary>
     /// speeker朗读者枚举常量，命名不可变更。

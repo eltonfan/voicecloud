@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Elton.VoiceCloud.ISR
 {
     /// <summary>
     /// 识别本地麦克风的语音。

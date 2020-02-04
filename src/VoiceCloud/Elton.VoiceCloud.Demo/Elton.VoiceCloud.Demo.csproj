@@ -7,8 +7,8 @@
     <ProjectGuid>{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Mavplus.VoiceCloud.Demo</RootNamespace>
-    <AssemblyName>Mavplus.VoiceCloud.Demo</AssemblyName>
+    <RootNamespace>Elton.VoiceCloud.Demo</RootNamespace>
+    <AssemblyName>Elton.VoiceCloud.Demo</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mavplus.VoiceCloud
+namespace Elton.VoiceCloud
 {
     /// <summary>
     /// 语音引擎异常。

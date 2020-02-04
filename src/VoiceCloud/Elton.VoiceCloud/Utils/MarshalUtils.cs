@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Runtime.InteropServices;
 
-namespace Mavplus.VoiceCloud
+namespace Elton.VoiceCloud
 {
     /// <summary>
     /// 非托管内存操作辅助类。

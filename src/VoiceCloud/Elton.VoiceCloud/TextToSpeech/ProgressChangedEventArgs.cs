@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mavplus.VoiceCloud.TextToSpeech
+namespace Elton.VoiceCloud.TextToSpeech
 {
     /// <summary>
     /// 收到部分文本合成的结果。

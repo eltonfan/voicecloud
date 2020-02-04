@@ -7,7 +7,7 @@ using System.Text;
 using System.IO;
 using System.ComponentModel;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Elton.VoiceCloud.ISR
 {
     /// <summary>
     /// 本地音频文件识别。

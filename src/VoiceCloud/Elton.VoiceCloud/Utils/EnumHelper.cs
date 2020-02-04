@@ -6,7 +6,7 @@ using System.Text;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace Mavplus
+namespace Elton
 {
     /// <summary>
     /// 枚举辅助类。可以利用枚举的DescriptionAttribute进行名称和值的转换。

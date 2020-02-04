@@ -1,4 +1,4 @@
-﻿using Mavplus.VoiceCloud.ISR;
+﻿using Elton.VoiceCloud.ISR;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mavplus.VoiceCloud.Demo
+namespace Elton.VoiceCloud.Demo
 {
     public partial class MainForm : Form
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mavplus.VoiceCloud.TextToSpeech
+namespace Elton.VoiceCloud.TextToSpeech
 {
     /// <summary>
     /// 语音结果片段。

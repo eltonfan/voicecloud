@@ -8,7 +8,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
 
-namespace Mavplus.VoiceCloud.TextToSpeech
+namespace Elton.VoiceCloud.TextToSpeech
 {
     /// <summary>
     /// 实现对讯飞语音 TTS 接口封装。

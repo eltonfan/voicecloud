@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace Mavplus.VoiceCloud.ISR
+namespace Elton.VoiceCloud.ISR
 {
     /// <summary>
     /// 为 RecognizeCompleted 事件提供数据。

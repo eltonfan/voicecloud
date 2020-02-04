@@ -1,4 +1,4 @@
-﻿namespace Mavplus.VoiceCloud.Demo
+﻿namespace Elton.VoiceCloud.Demo
 {
     partial class TtsForm
     {

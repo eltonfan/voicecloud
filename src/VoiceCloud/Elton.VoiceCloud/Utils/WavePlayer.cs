@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using Mavplus.VoiceCloud.TextToSpeech;
+using Elton.VoiceCloud.TextToSpeech;
 using NAudio.Wave;
 
-namespace Mavplus.VoiceCloud
+namespace Elton.VoiceCloud
 {
     /// <summary>
     /// 简单的WAV数据播放器。

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Mavplus.VoiceCloud.TextToSpeech
+namespace Elton.VoiceCloud.TextToSpeech
 {
     internal enum SynthStatusEnums
     {

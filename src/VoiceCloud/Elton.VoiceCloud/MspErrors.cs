@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel;
 
-namespace Mavplus.VoiceCloud
+namespace Elton.VoiceCloud
 {
     /// <summary>
     /// 对应 msp_errors.h 中的定义。

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Mavplus.VoiceCloud.Demo
+namespace Elton.VoiceCloud.Demo
 {
     static class Program
     {
