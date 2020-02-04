@@ -1,0 +1,36 @@
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <!-- Import Project="version.props" / -->
+  
+  <PropertyGroup>
+    <Product>VoiceCloud.NET</Product>
+
+    <Authors>Elton FAN</Authors>
+    <Company>Elton FAN</Company>
+    <Copyright>\u00A9 2014 Elton FAN (eltonfan@live.cn, http://elton.io)</Copyright>
+    <NeutralLanguage>zh-CN</NeutralLanguage>
+
+    <MaintainerEmail>eltonfan@live.cn</MaintainerEmail>
+
+    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl>https://github.com/eltonfan/voicecloud</PackageProjectUrl>
+    <Serviceable>true</Serviceable>
+
+    <IncludeSource>false</IncludeSource>
+    <IncludeSymbols>true</IncludeSymbols>
+    
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="GitVersionTask" Version="5.0.0-beta2-23">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Serilog" Version="2.8.0" />
+  </ItemGroup>
+</Project>
