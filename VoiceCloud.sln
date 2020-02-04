@@ -3,19 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elton.VoiceCloud", "Elton.VoiceCloud\Elton.VoiceCloud.csproj", "{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elton.VoiceCloud", "src\Elton.VoiceCloud\Elton.VoiceCloud.csproj", "{8470058A-D058-4A8A-9EEA-9C30CCFE8C91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elton.VoiceCloud.Demo", "Elton.VoiceCloud.Demo\Elton.VoiceCloud.Demo.csproj", "{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elton.VoiceCloud.Demo", "src\Elton.VoiceCloud.Demo\Elton.VoiceCloud.Demo.csproj", "{941BB334-C3D4-49EF-AD36-C9A4FDFDFA5C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".files", ".files", "{EAF64519-F71F-493C-A0CA-F53F8E44C5CF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".files", ".files", "{178691FE-6DD7-44D2-8003-20A34605ADD1}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\.gitattributes = ..\..\.gitattributes
-		..\..\.gitignore = ..\..\.gitignore
-		..\..\Directory.Build.props = ..\..\Directory.Build.props
-		..\..\GitVersion.yml = ..\..\GitVersion.yml
-		..\..\LICENSE = ..\..\LICENSE
-		..\..\NuGet.Config = ..\..\NuGet.Config
-		..\..\README.md = ..\..\README.md
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\GitVersion.yml = ..\GitVersion.yml
+		..\LICENSE = ..\LICENSE
+		..\NuGet.Config = ..\NuGet.Config
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global
@@ -37,6 +37,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {06AC6022-F0FF-4632-BD52-36E72D3A10EE}
+		SolutionGuid = {CF5BD1EF-0189-404F-BD8C-7D06668A8B3B}
 	EndGlobalSection
 EndGlobal
