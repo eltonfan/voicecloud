@@ -2,11 +2,9 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Runtime.InteropServices;
 using System.ComponentModel;
+using System.IO;
+using System.Text;
 
 namespace Elton.VoiceCloud.TextToSpeech
 {
@@ -15,7 +13,6 @@ namespace Elton.VoiceCloud.TextToSpeech
     /// </summary>
     public class TextToSpeechEngine : IDisposable
     {
-
         /// <summary>
         /// 合成音频的采样频率，8000、16000、44100等
         /// </summary>
@@ -146,28 +143,22 @@ namespace Elton.VoiceCloud.TextToSpeech
             }
         }
 
-        public void SaveAsWaveFile(string fileName, IEnumerable<SpeechPart> audioData)
+        public void SaveAsWaveFile(Stream stream, IEnumerable<SpeechPart> audioData)
         {
-            int dataLength = 0;
-            foreach(SpeechPart item in audioData)
+            var dataLength = 0;
+            foreach (SpeechPart item in audioData)
                 dataLength += item.RawAudio.Length;
 
-            byte[] headerByte = new WaveHeader(
+            var headerByte = new WaveHeader(
                 1,//单声道
                 16000,//采样频率
                 16,//每个采样8bit
                 dataLength).ToBytes();
 
-            using(FileStream stream = File.Create(fileName))
-            {
-                //写入文件头
-                stream.Write(headerByte, 0, headerByte.Length);
-                foreach (SpeechPart item in audioData)
-                    stream.Write(item.RawAudio, 0, item.RawAudio.Length);
-
-                stream.Flush();
-                stream.Close();
-            }
+            //写入文件头
+            stream.Write(headerByte, 0, headerByte.Length);
+            foreach (SpeechPart item in audioData)
+                stream.Write(item.RawAudio, 0, item.RawAudio.Length);
         }
 
         /// <summary>
@@ -177,16 +168,29 @@ namespace Elton.VoiceCloud.TextToSpeech
         /// <param name="outWaveFlie">把声音转为文件，默认为不生产wave文件</param>
         public void ToWaveFile(string fileName, string content)
         {
-            List<SpeechPart> rawAudio = new List<SpeechPart>();
+            var rawAudio = new List<SpeechPart>();
             RawAudioFromText(rawAudio, content);
-            SaveAsWaveFile(fileName, rawAudio);
+
+            using (var stream = File.Create(fileName))
+            {
+                SaveAsWaveFile(stream, rawAudio);
+
+                stream.Flush();
+                stream.Close();
+            }
         }
 
+        public void ToWaveFile(Stream stream, string content)
+        {
+            var rawAudio = new List<SpeechPart>();
+            RawAudioFromText(rawAudio, content);
+            SaveAsWaveFile(stream, rawAudio);
+        }
 
         BackgroundWorker bwSpeakText = null;
         public void SpeakText(string content)
         {
-            if(bwSpeakText == null)
+            if (bwSpeakText == null)
             {
                 bwSpeakText = new BackgroundWorker();
                 bwSpeakText.DoWork += bwSpeakText_DoWork;

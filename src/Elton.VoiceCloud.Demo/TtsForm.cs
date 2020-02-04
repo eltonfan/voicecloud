@@ -15,7 +15,6 @@ namespace Elton.VoiceCloud.Demo
     public partial class TtsForm : Form
     {
         readonly TextToSpeechEngine tts = null;
-        readonly TtsConfig config = null;
         readonly WavePlayer player = null;
         public TtsForm()
         {
@@ -24,12 +23,12 @@ namespace Elton.VoiceCloud.Demo
             player = new WavePlayer();
             player.ProgressChanged += player_ProgressChanged;
 
-            this.config = new TtsConfig();
+            var config = new TtsConfig();
             config.ServerUrl = "dev.voicecloud.cn";
             config.ApplicationId = "518fcbd0";
             config.Timeout = 10000;
             config.MaxTextSize = 4096;
-            tts = new TextToSpeechEngine(this.config);
+            tts = new TextToSpeechEngine(config);
             tts.AudioReceived += tts_AudioReceived;
             tts.ProgressChanged += tts_ProgressChanged;
 
